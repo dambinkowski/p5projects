@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>graphicsProgramming - Coursera</title>
+    <script src="libraries/p5.min.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.min.js" type="text/javascript"></script>
+    
+    <script src="Grid.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #111;
+        color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+
+      #canvas-holder canvas {
+        display: block;
+      }
+
+      #canvas-holder {
+        display: flex;
+        justify-content: center;
+      }
+
+      .instructions {
+        padding: 12px 16px 20px;
+        line-height: 1.4;
+      }
+
+      .instructions p {
+        text-align: center;
+        margin: 0 0 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="instructions">
+      <p>Real-time webcam background subtraction maps motion regions to a grid-based piano trigger system.</p>
+      <p>Press any key once to capture background and enable audio, then move on camera and tune threshold slider.</p>
+    </section>
+    <div id="canvas-holder"></div>
+  </body>
+</html>

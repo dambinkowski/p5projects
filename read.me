@@ -1,0 +1,110 @@
+# p5 Projects Collection
+
+An interactive gallery of creative coding sketches built with p5.js (and Matter.js for physics-based scenes).
+
+This repo includes 16 projects, each in its own folder under `projects/`, plus a launcher UI (`index.html`) that loads sketches in an iframe with a sidebar selector.
+
+## Quick Start
+
+1. Open a terminal in this project root.
+2. Start a local server:
+
+```bash
+python3 -m http.server
+```
+
+3. Open `http://localhost:8000` in your browser.
+4. Use the left sidebar to switch between projects.
+
+## Tech Stack
+
+- `p5.js` for rendering, animation, interaction, and creative coding workflows.
+- `Matter.js` for rigid-body physics in selected projects.
+- Plain HTML/CSS/JavaScript structure (no build step required).
+
+## Project List
+
+1. `1-mouse-follow-colors`
+- Class-based particle swarm that follows cursor vectors and paints colorful trails.
+- Input: move mouse.
+
+2. `2-solar-panel-system`
+- Hierarchical transform demo with nested orbital motion.
+- Input: none.
+
+3. `3-particles`
+- Particle simulation with gravity, friction, bouncing, and fade-out lifespan.
+- Input: click + drag to spawn particles.
+
+4. `4-space-game`
+- Arcade-style asteroid game with spaceship controls, bullets, collision checks, and scoring.
+- Input: arrow keys to move, space to shoot.
+
+5. `5-launch-rocket`
+- Matter.js slingshot and tower scene with constraint-based interactions.
+- Input: drag/release sling, left/right arrows, `b` to spawn bird, `r` to reset sling.
+
+6. `6-lottery-fall`
+- Plinko-like Matter.js board with pin collisions and spawned balls.
+- Input: press any key to add balls.
+
+7. `7-noise-wall`
+- Perlin-noise field driving both color interpolation and directional line flow.
+- Input: move mouse horizontally.
+
+8. `8-catapult-throw`
+- Matter.js catapult/lever chain reaction using constraints and collision response.
+- Input: none.
+
+9. `9-image-processing`
+- Pixel-processing pipeline with multiple togglable filters and radial blur focus.
+- Input: move mouse for blur focus, keys `1-4` toggle filters, click redraws.
+
+10. `10-average-face-look`
+- Pixel-wise averaging of portrait dataset with interactive blend to source image.
+- Input: move mouse to blend, any key picks a new random source face.
+
+11. `11-button-runner`
+- Class-based hover detection and evasive stochastic movement behavior.
+- Input: move mouse over the circle.
+
+12. `12-tree-art-fractal-function`
+- Recursive fractal tree with seeded randomness and animated noise variation.
+- Input: none.
+
+13. `13-font-random`
+- Font outline points rendered as jittered particle typography.
+- Input: move mouse horizontally to increase/decrease jitter.
+
+14. `14-maurer-rose`
+- Parametric Maurer rose visualization with live controls.
+- Input: drag sliders for `n` and `d`.
+
+15. `15-active-art`
+- Polar-shape animation combining sine wave and noise components.
+- Input: none.
+
+16. `16-piano-web-cam-image-processing`
+- Webcam background subtraction mapped to a motion grid with piano-note triggering.
+- Input: press any key once to capture background/enable audio, then move in camera view and adjust threshold slider.
+
+## Repository Structure
+
+```text
+index.html            # launcher UI with sidebar + iframe preview
+style.css             # launcher styling
+projects/
+	<project-folder>/
+		index.html
+		sketch.js
+		libraries/        # p5.js, p5.sound, and/or matter.js per project
+		assets/           # optional media assets
+```
+
+## Notes
+
+- Some browser features require permissions:
+- Webcam project (`16`) needs camera access.
+- Audio playback in modern browsers typically starts after user interaction.
+- Run from a local HTTP server, not `file://`, for consistent asset loading.
+

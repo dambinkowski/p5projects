@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dambinkowski | p5 projects</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <nav class="projects" id="projects"></nav>
+    </aside>
+
+    <main class="viewer">
+      <iframe id="frame" title="Project preview"></iframe>
+    </main>
+  </div>
+
+  <script>
+    const PROJECTS = [
+      "1-mouse-follow-colors",
+      "2-solar-panel-system",
+      "3-particles",
+      "4-space-game",
+      "5-launch-rocket",
+      "6-lottery-fall",
+      "7-noise-wall",
+      "8-catapult-throw",
+      "9-image-processing",
+      "10-average-face-look",
+      "11-button-runner",
+      "12-tree-art-fractal-function",
+      "13-font-random",
+      "14-maurer-rose",
+      "15-active-art",
+      "16-piano-web-cam-image-processing",
+    ];
+
+    const list = document.getElementById("projects");
+    const frame = document.getElementById("frame");
+
+    function setActive(btn) {
+      [...document.querySelectorAll(".project")].forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    function loadProject(folderName) {
+      const src = `projects/${folderName}/`;
+      frame.src = src;
+
+      const url = new URL(window.location);
+      url.searchParams.set("p", src);
+      history.replaceState({}, "", url);
+    }
+
+    // build sidebar
+    PROJECTS.forEach((folderName) => {
+      const btn = document.createElement("button");
+      btn.className = "project";
+      btn.textContent = folderName; // or prettier label if you want
+      btn.dataset.folder = folderName;
+
+      btn.addEventListener("click", () => {
+        loadProject(folderName);
+        setActive(btn);
+      });
+
+      list.appendChild(btn);
+    });
+
+    // initial load from ?p=projects/.. OR default to first
+    const p = new URLSearchParams(window.location.search).get("p");
+    if (p) {
+      frame.src = p;
+      const folder = p.replace(/^projects\//, "").replace(/\/$/, "");
+      const match = [...document.querySelectorAll(".project")].find(b => b.dataset.folder === folder);
+      if (match) setActive(match);
+    } else {
+      const first = document.querySelector(".project");
+      if (first) {
+        loadProject(first.dataset.folder);
+        setActive(first);
+      }
+    }
+  </script>
+</body>
+</html>
